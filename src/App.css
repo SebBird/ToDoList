@@ -1,16 +1,47 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 button {
   margin: 1rem;
-  height: 3rem;
-  width: 8rem;
+  height: 2rem;
+  width: 4rem;
   outline: none;
   border: none;
   border-radius: 30px;
   background-color: rgb(255, 215, 0);
-  box-shadow: 0 5px 2px hsl(43, 74%, 49%);
-  transition: box-shadow 0.15s, transform 0.15s;
+  box-shadow: 0 2px 2px hsl(43, 74%, 49%);
+  transition: box-shadow 0.1s, transform 0.1s;
 }
 
 button:active {
   box-shadow: none;
-  transform: translateY(5px);
+  transform: translateY(2px);
+}
+
+.delete {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 2px 2px rgb(139, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+p {
+  display: inline-block;
+  user-select: none;
+}
+
+.striked {
+  text-decoration: line-through;
+}
+
+.tasks {
+  width: 20rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
