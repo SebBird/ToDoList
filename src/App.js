@@ -4,7 +4,13 @@ import Tasks from "./components/Tasks";
 import "./App.css";
 
 const App = () => {
-  const [tasks, updateTasks] = useState([]);
+  const [tasks, updateTasks] = useState(
+    JSON.parse(localStorage.getItem("taskList")) || []
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("taskList", JSON.stringify(tasks));
+  });
 
   const addTask = (task) => {
     if (!task) {
@@ -28,7 +34,9 @@ const App = () => {
   const onComplete = (taskID) => {
     const newTasks = [...tasks];
     const taskIndex = newTasks.findIndex((task) => task.id === taskID);
-    newTasks[taskIndex].completed = true;
+    newTasks[taskIndex].completed = newTasks[taskIndex].completed
+      ? false
+      : true;
     console.log(newTasks);
     updateTasks(newTasks);
   };
@@ -36,6 +44,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>ToDoList - ReactJS</h1>
+      <h2>Click to complete, X to delete</h2>
       <CreateTask addTask={addTask} />
       <Tasks
         tasks={tasks}
