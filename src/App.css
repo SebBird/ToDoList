@@ -1,4 +1,6 @@
 .app {
+  padding-top: 10rem;
+  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,9 +32,27 @@ button:active {
   color: rgb(255, 255, 255);
 }
 
+h1,
+h2 {
+  margin: 0.2rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
 p {
   display: inline-block;
   user-select: none;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+.taskCounter {
+  display: block;
 }
 
 .striked {
@@ -40,8 +60,33 @@ p {
 }
 
 .tasks {
-  width: 20rem;
+  width: 18rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+#taskInput {
+  margin: 1rem;
+  padding: 0.4rem;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    text-align: center;
+  }
+
+  .app {
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .tasks {
+    width: 15rem;
+  }
 }

@@ -6,8 +6,11 @@ const Tasks = ({ tasks, handleDelete, handleComplete }) => {
   }
 
   return (
-    <p>
-      Total tasks: {tasks.length}
+    <div>
+      <p className="taskCounter">
+        Total tasks completed: {tasks.filter((task) => task.completed).length}
+      </p>
+      <p className="taskCounter">Total tasks: {tasks.length}</p>
       {tasks.map(({ name, id, completed }) => {
         return (
           <>
@@ -26,7 +29,7 @@ const Tasks = ({ tasks, handleDelete, handleComplete }) => {
           </>
         );
       })}
-    </p>
+    </div>
   );
 };
 

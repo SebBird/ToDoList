@@ -14,6 +14,7 @@ const CreateTask = ({ addTask }) => {
       <form onSubmit={(e) => submitForm(e)}>
         <label htmlFor="taskinput">What do you need to do?</label>
         <input
+          id="taskInput"
           value={task}
           onChange={(e) => updateTask(e.target.value)}
           type="text"
