@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 .app {
   padding-top: 10rem;
   font-family: "Roboto", sans-serif;
@@ -15,7 +19,7 @@ button {
   border: none;
   border-radius: 30px;
   background-color: rgb(255, 215, 0);
-  box-shadow: 0 2px 2px hsl(43, 74%, 49%);
+  box-shadow: 0 2px 0px hsl(43, 74%, 49%);
   transition: box-shadow 0.1s, transform 0.1s;
 }
 
@@ -24,12 +28,23 @@ button:active {
   transform: translateY(2px);
 }
 
-.delete {
-  height: 1.5rem;
-  width: 1.5rem;
-  background-color: rgb(255, 0, 0);
-  box-shadow: 0 2px 2px rgb(139, 0, 0);
+.delete,
+.completed {
+  margin: 0.25rem;
+  height: 1.3rem;
+  width: 1.3rem;
   color: rgb(255, 255, 255);
+}
+
+.delete {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0 1px 0px rgb(139, 0, 0);
+}
+
+.completed {
+  background-color: rgb(1, 170, 1);
+  box-shadow: 0 1px 0px rgb(0, 116, 0);
+  margin-left: 1.5rem;
 }
 
 h1,
@@ -45,6 +60,10 @@ h2 {
 p {
   display: inline-block;
   user-select: none;
+}
+
+.tasks > p:hover {
+  font-style: italic;
 }
 
 form {
@@ -71,22 +90,19 @@ form {
   padding: 0.4rem;
 }
 
-@media screen and (max-width: 768px) {
-  * {
-    text-align: center;
-  }
-
+@media screen and (max-width: 767px) {
   .app {
     padding: 2rem;
   }
 
-  h2 {
-    font-size: 1rem;
+  .tasks {
+    width: 100%;
+  }
+
+  .taskHolder {
+    width: 80%;
   }
 }
 
 @media screen and (max-width: 414px) {
-  .tasks {
-    width: 15rem;
-  }
 }
