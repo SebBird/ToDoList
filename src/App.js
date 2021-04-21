@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateTask from "./components/CreateTask";
 import Tasks from "./components/Tasks";
 import "./App.css";
@@ -8,7 +8,7 @@ const App = () => {
     JSON.parse(localStorage.getItem("taskList")) || []
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("taskList", JSON.stringify(tasks));
   });
 
@@ -32,6 +32,7 @@ const App = () => {
   };
 
   const onComplete = (taskID) => {
+    console.log(taskID);
     const newTasks = [...tasks];
     const taskIndex = newTasks.findIndex((task) => task.id === taskID);
     newTasks[taskIndex].completed = newTasks[taskIndex].completed
@@ -44,7 +45,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>ToDoList - ReactJS</h1>
-      <h2>Click to complete, X to delete</h2>
+      <h2>By Sebastian Bird</h2>
       <CreateTask addTask={addTask} />
       <Tasks
         tasks={tasks}
@@ -56,9 +57,3 @@ const App = () => {
 };
 
 export default App;
-/**
- * TODO:
- * LOCAL STORAGE / SESSION STORAGE, LOOK UP - it will keep the data after a refresh of page
- * Eslint added to show you your tiny tiny mistakes (use joke generator for config files)
- *
- **/
